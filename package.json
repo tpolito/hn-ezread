@@ -44,6 +44,9 @@
 			],
 			"^.+\\.ts$": "ts-jest"
 		},
+		"transformIgnorePatterns": [
+			"<rootDir>/node_modules/(?!(svelte-icons))"
+		],
 		"moduleFileExtensions": [
 			"js",
 			"ts",

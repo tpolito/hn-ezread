@@ -28,7 +28,7 @@
 
 <script lang="ts">
 	import type { tPostSummary } from 'src/types';
-	import PostCard from '../post/PostCard.svelte';
+	import PostCard from './PostCard.svelte';
 	export let posts: tPostSummary[];
 	export let page: number;
 	export let category: string;
@@ -50,7 +50,7 @@
 	{#if page === 1}
 		<span class="link disabled">Prev</span>
 	{:else}
-		<a href={prev} class="link">Previous</a>
+		<a href={prev} class="link">Prev</a>
 	{/if}
 	<a class="link" href={next}>Next</a>
 </div>

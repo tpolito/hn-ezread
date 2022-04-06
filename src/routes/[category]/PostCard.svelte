@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/Icon.svelte';
+	import Icon from '../../lib/Icon.svelte';
 	import type { tPostSummary } from 'src/types';
 
 	export let post: tPostSummary;

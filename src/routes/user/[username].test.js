@@ -20,6 +20,5 @@ describe('Username tests', () => {
 
 		expect(getByText('poetril')).toBeInTheDocument();
 		expect(getByText('3 years ago')).toBeInTheDocument();
-		expect(getByText('7 karma')).toBeInTheDocument();
 	});
 });
