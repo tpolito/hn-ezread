@@ -1,11 +1,17 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import Icon from './Icon.svelte';
 
 	let theme = 'dark';
 
-	try {
-		theme = localStorage.getItem('theme') || 'dark';
-	} catch (e) {}
+	onMount(() => {
+		theme = localStorage.theme || 'dark';
+		if (theme) {
+			const { classList } = document.querySelector('html');
+			classList.add(theme);
+		}
+	});
 
 	const updateColorMode = () => {
 		const { classList } = document.querySelector('html');
@@ -13,11 +19,10 @@
 		classList.remove(theme);
 		theme = theme === 'dark' ? 'light' : 'dark';
 		classList.add(theme);
+		try {
+			localStorage.setItem('theme', theme);
+		} catch (e) {}
 	};
-
-	try {
-		localStorage.setItem('theme', theme);
-	} catch (e) {}
 </script>
 
 <button on:click={updateColorMode}>

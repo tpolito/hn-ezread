@@ -24,9 +24,11 @@
 	<a href={`https://news.ycombinator.com/item?id=${item.id}`}>View on ycombinator</a>
 </p>
 <hr />
-{#each comments as comment}
-	<Comment {comment} />
-{/each}
+<div class="comment-container">
+	{#each comments as comment}
+		<Comment {comment} />
+	{/each}
+</div>
 
 <style>
 	h1 {
@@ -34,5 +36,9 @@
 	}
 	.links {
 		margin-top: 0.5rem;
+	}
+
+	.comment-container > :global(.comment):first-child {
+		border-top: none;
 	}
 </style>
