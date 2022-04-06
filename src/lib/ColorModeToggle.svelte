@@ -25,7 +25,7 @@
 	};
 </script>
 
-<button on:click={updateColorMode}>
+<button aria-label="Toggle color mode" on:click={updateColorMode}>
 	<Icon icon={theme === 'dark' ? 'sun' : 'moon'} size="lg" />
 </button>
 

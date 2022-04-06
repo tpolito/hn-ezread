@@ -12,16 +12,18 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
+	import type { tUser } from 'src/types';
+
 	export let name;
-	export let user;
+	export let user: tUser;
 </script>
 
 <svelte:head>
 	<title>{name}</title>
 </svelte:head>
 
-<h1>{name}</h1>
+<h1>{user.id}</h1>
 
 <div>
 	<p>Joined <strong>{user.created}</strong>, and has <strong>{user.karma}</strong> karma</p>

@@ -11,7 +11,13 @@
 		{post.points} points by <a href={`/user/${post.user}`}>{post.user}</a>
 		{post.time_ago} | <a href={`/post/${post.id}`}>{post.comments_count} comments</a>
 	</p>
-	<a href={post.url} class="icon" rel="external noreferrer" target="_blank">
+	<a
+		aria-label="Open link in new tab"
+		href={post.url}
+		class="icon"
+		rel="external noreferrer"
+		target="_blank"
+	>
 		<Icon icon="external-link" />
 	</a>
 </article>
