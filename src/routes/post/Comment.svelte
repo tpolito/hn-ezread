@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon from '../../lib/Icon.svelte';
 	import type { tComment } from 'src/types';
-	import { logDOM } from '@testing-library/svelte';
 	export let comment: tComment;
 
 	let hidden = false;
@@ -58,7 +57,7 @@
 		color: var(--primary);
 	}
 	.comment {
-		border-top: 1px solid var(--fg-light);
+		border-top: 1px solid var(--fg);
 	}
 	.comment .children {
 		padding: 0 0 0 1.8rem;

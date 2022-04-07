@@ -20,10 +20,19 @@
 
 <h1>{item.title}</h1>
 <p class="links">
-	<a href={item.url}>{item.domain}</a> |
-	<a href={`https://news.ycombinator.com/item?id=${item.id}`}>View on ycombinator</a>
+	{#if item.domain}
+		<a href={item.url}>{item.domain}</a> |
+	{/if}
+	<a href={`https://news.ycombinator.com/item?id=${item.id}`}>View on ycombinator</a> | {item.comments_count}
+	comments
 </p>
-<hr />
+
+{#if item.content !== ''}
+	<hr />
+	{@html item.content}
+{/if}
+
+<hr class="post-seperator" />
 <div class="comment-container">
 	{#each comments as comment}
 		<Comment {comment} />
@@ -34,11 +43,18 @@
 	h1 {
 		margin-top: 0.5rem;
 	}
+	hr {
+		border-top: 1px solid var(--fg);
+		border-bottom: none;
+	}
 	.links {
 		margin-top: 0.5rem;
 	}
-
 	.comment-container > :global(.comment):first-child {
 		border-top: none;
+	}
+	.post-seperator {
+		border-top: 2px solid var(--primary);
+		border-bottom: none;
 	}
 </style>

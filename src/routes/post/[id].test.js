@@ -12,7 +12,7 @@ const mockPost = {
 	user: 'test user',
 	time: 100000000,
 	type: 'link',
-	content: '',
+	content: 'hello world',
 	comments: [],
 	comments_count: 10,
 	url: 'https://tpolito.com',
@@ -28,5 +28,13 @@ describe('Post tests', () => {
 		expect(getByText('Mock post')).toBeInTheDocument();
 		expect(getByText('View on ycombinator')).toBeInTheDocument();
 		expect(getByText(/tpolito.com/i)).toBeInTheDocument();
+	});
+
+	test('Should render item content if present', () => {
+		const { getByText } = render(Post, {
+			item: mockPost
+		});
+
+		expect(getByText('hello world')).toBeInTheDocument();
 	});
 });
