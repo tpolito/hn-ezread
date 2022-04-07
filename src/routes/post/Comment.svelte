@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Icon from '$lib/Icon.svelte';
+	import Icon from '../../lib/Icon.svelte';
 	import type { tComment } from 'src/types';
+	import { logDOM } from '@testing-library/svelte';
 	export let comment: tComment;
 
 	let hidden = false;
@@ -10,10 +11,13 @@
 	<article class="comment" class:hidden>
 		<p>
 			<a href={`/user/${comment.user}`}>{comment.user}</a> - {comment.time_ago}
-			<button on:click={() => (hidden = !hidden)}>
+			<button aria-label="Collapse or expand comment" on:click={() => (hidden = !hidden)}>
 				<Icon icon={hidden ? 'expand' : 'collapse'} />
 			</button>
-			<span>{hidden ? ` ${comment.comments.length} replies` : ''}</span>
+
+			{#if hidden}
+				<span>{comment.comments.length} replies</span>
+			{/if}
 		</p>
 
 		<div class="content">{@html comment.content}</div>
