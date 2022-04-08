@@ -3,7 +3,7 @@
 
 	import Icon from './Icon.svelte';
 
-	let theme = 'dark';
+	let theme: string = 'dark';
 
 	onMount(() => {
 		theme = localStorage.theme || 'dark';
